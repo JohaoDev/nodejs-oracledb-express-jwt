@@ -32,7 +32,7 @@ export async function selectByID(tableName: string, id: number) {
   try {
     // Get a connection from the default pool
     connection = await oracledb.getConnection();
-    const sql = `SELECT * FROM ${tableName} where docu_sec = :id`;
+    const sql = `SELECT * FROM ${tableName} where ${tableName}_sec = :id`;
     const binds: any = [id];
     const options = { outFormat: oracledb.OUT_FORMAT_OBJECT };
     const result = await connection.execute(sql, binds, options);

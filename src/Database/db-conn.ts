@@ -7,7 +7,7 @@ export async function initDB() {
     await oracledb.createPool({
       user: process.env.ORACLE_USER,
       password: process.env.ORACLE_PASS,
-      connectString: "localhost/XE",
+      connectString: process.env.ORACLE_CONNECTIONSTRING,
     });
     console.log("Connection pool started");
 
